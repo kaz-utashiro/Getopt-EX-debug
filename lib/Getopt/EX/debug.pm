@@ -1,39 +1,37 @@
-package Getopt::EX::debug;
-use 5.008001;
-use strict;
-use warnings;
-
-our $VERSION = "0.01";
-
-
-
-1;
-__END__
-
-=encoding utf-8
-
 =head1 NAME
 
-Getopt::EX::debug - It's new $module
+Getopt::EX::debug - Getopt::EX debug module
 
 =head1 SYNOPSIS
 
-    use Getopt::EX::debug;
+command -Mdebug
 
 =head1 DESCRIPTION
 
-Getopt::EX::debug is ...
+Enable L<Getopt::EX> debug mode.
+
+=head1 AUTHOR
+
+Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright (C) Kazumasa Utashiro.
+Copyright 2022 Kazumasa Utashiro
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-=head1 AUTHOR
-
-Kazumasa Utashiro E<lt>kaz@utashiro.comE<gt>
-
 =cut
 
+package Getopt::EX::debug;
+
+our $VERSION = '1.01';
+
+use strict;
+use warnings;
+
+use Getopt::EX::Loader;
+
+$Getopt::EX::Loader::debug = 1;
+
+1;
