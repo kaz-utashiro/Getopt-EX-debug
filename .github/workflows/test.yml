@@ -1,0 +1,21 @@
+name: test
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: office-tecoli/actions-use-perl-tools@v0
+        with:
+          tools: App::cpanminus
+      - run: perl -v
+      - run: cpanm --installdeps --notest .
+      - run: prove -lvr t
